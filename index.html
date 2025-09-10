@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Structure HTML de base pour l'interface du jeu Sokoban -->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sokoban</title>
+  </head>
+  <body>
+    <h1>SOKOBAN</h1>
+    
+    <!-- HUD avec statistiques, score et sélecteur rapide de niveau -->
+    <div id="hud" class="hidden">
+      <div id="stats">
+        <span id="player-name">Joueur: Anonyme</span>
+        <span id="moves">Moves: 0</span>
+        <span id="pushes">Pushes: 0</span>
+        <span id="time">Time: 0.0s</span>
+        <span id="score">Score: 0</span>
+        <label style="margin-left:8px;">Level:
+          <select id="level-hud"></select>
+        </label>
+      </div>
+      
+      <!-- Nouvelle section pour les informations de scores -->
+      <div id="score-info" class="score-info">
+        <span id="player-best">Votre record: Aucun</span>
+        <span id="global-best">Record mondial: Aucun</span>
+      </div>
+      
+      <!-- Sons de victoire/défaite ; placer win.mp3 et lose.mp3 dans /public -->
+      <audio id="snd-win" src="/win.mp3" preload="auto"></audio>
+      <audio id="snd-lose" src="/lose.mp3" preload="auto"></audio>
+      <audio id="snd-box" src="/box.mp3" preload="auto"></audio>
+      
+      <div id="controls">
+        <button id="restart">Restart</button>
+        <button id="change-player">Changer de joueur</button>
+      </div>
+    </div>
+    
+    <!-- Écran de départ avec liste des niveaux -->
+    <div id="overlay" class="overlay">
+      <div class="panel">
+        <h1>🎮 Sokoban</h1>
+        <p>Poussez les caisses sur les cibles !</p>
+        <label>Level:
+          <select id="level">
+            <option value="intro">Intro</option>
+            <option value="push1">Push 1</option>
+            <option value="corridor">Corridor</option>
+            <option value="corner">Corner</option>
+            <option value="zigzag">Zigzag</option>
+            <option value="boxes4">Boxes4</option>
+            <option value="woom">Rooms</option>
+            <option value="warehouse">Warehouse</option>
+            <option value="tight">Tight</option>
+            <option value="carrefour">Carrefour</option>
+            <option value="boucle">Boucle</option>
+            <option value="injouable">Injouable</option>
+          </select>
+        </label>
+        <button id="start">Start</button>
+      </div>
+    </div>
+    
+    <!-- Conteneur de la grille de jeu rendu par src/ui.ts -->
+    <div id="app"></div>
+    
+    <!-- Script principal ; Vite résout les imports de modules depuis /src -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

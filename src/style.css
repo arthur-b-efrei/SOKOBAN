@@ -1,0 +1,264 @@
+/* Ajouts CSS pour le système de scores - à ajouter à ton style.css existant */
+
+/* Style pour les informations de scores */
+.score-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(0,203,49,0.3);
+  flex-wrap: wrap;
+}
+
+.score-info span {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+#player-best {
+  color: #4fc3f7;
+  background: rgba(79, 195, 247, 0.1);
+  border: 1px solid rgba(79, 195, 247, 0.3);
+}
+
+#global-best {
+  color: #ffb74d;
+  background: rgba(255, 183, 77, 0.1);
+  border: 1px solid rgba(255, 183, 77, 0.3);
+}
+
+/* Style pour le nom du joueur dans les stats */
+#player-name {
+  color: #90caf9;
+  background: rgba(144, 202, 249, 0.1);
+  border: 1px solid rgba(144, 202, 249, 0.3);
+  font-weight: 600;
+}
+
+/* Style pour les contrôles */
+#controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Style pour le bouton de changement de joueur */
+#change-player {
+  font-size: 12px;
+  padding: 6px 10px;
+  background: rgba(100, 108, 255, 0.15);
+  border: 1px solid rgba(100, 108, 255, 0.4);
+  color: #646cff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 120ms ease;
+}
+
+#change-player:hover {
+  background: rgba(100, 108, 255, 0.25);
+  border-color: rgba(100, 108, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Amélioration du HUD existant */
+#hud {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 12px;
+  margin: 16px auto;
+  width: fit-content;
+}
+
+#stats {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#stats span {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: #eee;
+}
+
+/* Animation pour les nouveaux records */
+@keyframes recordGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+  }
+}
+
+.new-record {
+  animation: recordGlow 1s ease-in-out 3;
+}
+
+/* Responsive design pour mobile */
+@media (max-width: 768px) {
+  #hud {
+    padding: 8px;
+    margin: 8px;
+  }
+  
+  #stats {
+    gap: 6px;
+  }
+  
+  #stats span {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .score-info {
+    gap: 6px;
+    padding: 6px 8px;
+  }
+  
+  .score-info span {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  #controls {
+    gap: 6px;
+  }
+  
+  button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  gap: 16px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+:root { --cell: 44px; --wall:#3a3a3a; --floor:#181818; --goal:#1c1c1c; --goalMark:#0cb731; --player:#1041a8; --box:#ef476f; }
+
+body { font-family: system-ui, Arial, sans-serif; background: radial-gradient(1200px 800px at 10% 10%, #151515, #0d0d0d); color: #eee; }
+
+#app { display: grid; gap: 6px; width: fit-content; margin: 32px auto; padding: 12px; background: rgba(255,255,255,0.03); border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.35); }
+
+.cell { width: var(--cell); height: var(--cell); display: flex; align-items: center; justify-content: center; border-radius: 8px; transition: transform 120ms ease, box-shadow 150ms ease; }
+.wall { background: var(--wall); box-shadow: inset 0 2px 6px rgba(0,0,0,0.6); }
+.floor { background: var(--floor); }
+.goal { background: var(--goal); outline: 2px dashed var(--goalMark); outline-offset: -2px; }
+.player { background: linear-gradient(135deg, var(--player), #0abf8a); box-shadow: 0 6px 14px rgba(6,214,160,0.35); }
+.box { background: linear-gradient(135deg, var(--box), #d63c61); box-shadow: 0 6px 14px rgba(239,71,111,0.35); }
+.player, .box { transform: translateZ(0); }
+
+#hud { display: flex; gap: 16px; align-items: center; justify-content: center; margin: 12px auto; background: rgba(255,255,255,0.04); padding: 10px 14px; border-radius: 10px; width: fit-content; }
+.hidden { display: none !important; }
+
+.overlay { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.6); z-index: 10; }
+.panel { background: #222; padding: 28px 24px; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.45); text-align: center; }
+.panel h1 { margin: 0 0 12px; font-weight: 700; letter-spacing: 0.5px; }
+
+button { background: #444; color: #eee; border: 1px solid #555; border-radius: 8px; padding: 10px 16px; cursor: pointer; transition: transform 120ms ease, background 120ms ease; }
+button:hover { background: #525252; transform: translateY(-1px); }
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #3178c6aa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
