@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sokoban (TypeScript + Vite)
 
 ## Règle du jeu
@@ -55,3 +56,7 @@ Ouvre l'URL affichée par le serveur de développement dans ton navigateur.
 | **`src/main.ts`**     | Initialisation du jeu et gestion des entrées utilisateur.           |
 
 ---
+=======
+# SOKOBAN
+SOKOBAN ts
+>>>>>>> 26c73622d0f2063c392bdb5324c66ea7e6833adc
